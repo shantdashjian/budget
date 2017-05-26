@@ -14,6 +14,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entities.Category;
 import entities.Item;
 import entities.User;
 
@@ -67,6 +68,16 @@ public class ItemTest {
 	     assertEquals(1, user.getId());
 	     assertEquals("shaundashjian@gmail.com", user.getEmail());
 	     assertEquals("password", user.getPassword());
+	     
+	  }
+	
+	@Test
+	public void test_category_association() {
+	     item = entityManager.find(Item.class, 1);
+	     Category category = item.getCategory();
+	     assertEquals(1, category.getId());
+	     assertEquals("food", category.getName());
+	     assertEquals("I need this to stay alive", category.getDescription());
 	     
 	  }
 	
