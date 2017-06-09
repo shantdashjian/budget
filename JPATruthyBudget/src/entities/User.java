@@ -24,7 +24,7 @@ public class User {
 	private String password;
 	
 	@OneToMany(mappedBy="user")
-	@JsonManagedReference
+	@JsonManagedReference(value="user-reference")
 	private Set<Item> items;
 
 	// gets and sets

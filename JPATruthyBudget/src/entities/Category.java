@@ -1,10 +1,15 @@
 package entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "category")
@@ -18,6 +23,10 @@ public class Category {
 	
 	private String description;
 
+	@OneToMany(mappedBy="category")
+	@JsonManagedReference(value="category-reference")
+	private Set<Item> items;
+	
 	// gets and sets
 	public String getName() {
 		return name;
